@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> CSD 340 Web Development with HTML and CSS </title>
+</head>
+<body>
+    <header><h1> Assignment 11.2: JavaScript - Part 3 </h1></header>
+    
+    <p><h4> This is an interactive task list. Type an item in the text box <br>
+         and then click the 'Add' button to start or continue a list.  <br>
+         Clicking on the 'Delete Last Entry' will delete last item.  <br>
+         Click on the 'Display' button to view the item list.  </h4></p>
+
+    <hr>
+    
+    <input type="text" id="inputBox" placeholder="Type Item">
+    <button onclick="addElement()">Add</button>
+    <button onclick="deleteLast()">Delete Last Entry</button>
+    <button onclick="displayArray()">Display</button>
+  
+    <div id="displayArea" style="margin-top: 20px; font-weight: bold;"></div>
+
+    <script>
+        let myArray = [];
+
+        function addElement() {
+            const inputBox = document.getElementById('inputBox');
+            const value = inputBox.value.trim();
+            if (value) {
+                myArray.push(value);
+                inputBox.value = ''; 
+                alert('Value added!');
+            } else {
+                alert('Please enter a valid value.');
+            }
+        }
+
+        function deleteLast() {
+            if (myArray.length > 0) {
+                myArray.pop();
+                alert('Last entry deleted!');
+            } else {
+                alert('Array is empty.');
+            }
+        }
+
+        function displayArray() {
+            const displayArea = document.getElementById('displayArea');
+            if (myArray.length > 0) {
+                displayArea.innerHTML = `Tasks: <br> ${myArray.join('<br>')}`;
+            } else {
+                displayArea.textContent = 'Array is empty.';
+            }
+        }
+    </script>
+</body>
+</html>
