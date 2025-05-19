@@ -1,0 +1,94 @@
+	<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <title> CSD 340 Web Development with HTML and CSS </title>
+    <link href="Rodriguez_Mod3_3.css" type="text/css" rel="stylesheet" />
+</head>
+ 
+<body>
+    <div id="container">
+        <h1> Assignment 12.2: JavaScript - Part 4 </h1>
+ 
+        <div class="side-by-side" id="left">
+            <h3>Top 10 Favorite Books</h3>
+ 
+            <button id="top-to-bottom">Top to Bottom</button>
+            <button id="bottom-to-top">Bottom to Top</button>
+ 
+            <ol id="book-list">
+                <li> HTML&CSS design and build websites </li>
+                <li> To Kill a Mocking Bird </li>
+                <li> Harry Potter </li>
+                <li> The Hobbit </li>
+                <li> Dune </li>
+                <li> One Dark Window </li>
+                <li> Edge of Darkness </li>
+                <li> Night of the Shadow Moon </li>
+                <li> Edge of Collapse </li>
+                <li> The Science of Interstellar </li>
+            </ol>
+        </div>
+ 
+        <div id="right">
+            <h3>5 Things I've Learned Since the Course Started</h3>
+            <ul>
+                <li> What HTML and CSS files do </li>
+                <li> How to display text onto a webpage </li>
+                <li> Setup a landing page on github </li>
+                <li> Style a HTML page using CSS </li>
+                <li> Ways people see and think </li>
+            </ul>
+        </div>
+ 
+        <div class="last">
+            <a href="file:///C:/csd/csd-340/index.html">Back to Landing Page</a>
+        </div>
+    </div>
+ 
+    <script>
+        const topBooks = [
+            "HTML&CSS design and build websites",
+            "To Kill a Mocking Bird",
+            "Harry Potter",
+            "The Hobbit",
+            "Dune",
+            "One Dark Window",
+            "Edge of Darkness",
+            "Night of the Shadow Moon",
+            "Edge of Collapse",
+            "The Science of Interstellar"
+        ];
+ 
+        function sortTopToBottom() {
+            topBooks.sort();
+ 
+            const bookList = document.getElementById("book-list");
+            bookList.innerHTML = "";
+ 
+            topBooks.forEach(book => {
+                const listItem = document.createElement("li");
+                listItem.textContent = book;
+                bookList.appendChild(listItem);
+            });
+        }
+ 
+        function sortBottomToTop() {
+            topBooks.sort().reverse();
+ 
+            const bookList = document.getElementById("book-list");
+            bookList.innerHTML = "";
+ 
+            topBooks.forEach(book => {
+                const listItem = document.createElement("li");
+                listItem.textContent = book;
+                bookList.appendChild(listItem);
+            });
+        }
+ 
+        document.getElementById("top-to-bottom").addEventListener("click", sortTopToBottom);
+        document.getElementById("bottom-to-top").addEventListener("click", sortBottomToTop);
+    </script>
+</body>
+ 
+</html>
